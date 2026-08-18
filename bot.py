@@ -96,7 +96,11 @@ async def unsubscribe(ctx):
     except discord.Forbidden:
         await ctx.send("I don't have permission to remove that role.")
 
-
+@bot.command()
+async def testreminder(ctx):
+    """Manually fires the reminder message right now, for testing."""
+    await ctx.send(f"<@&{ROLE_ID}> Mudae pulls have reset")
+    
 @bot.command()
 async def remindon(ctx):
     global reminders_on
