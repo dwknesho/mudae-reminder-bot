@@ -44,7 +44,8 @@ async def reset_check():
         return
 
     now = datetime.now(PH_TZ)
-    if now.minute == 21:
+    is_awake_hours = now.hour >= 9 or now.hour < 2  # active 9:00 AM to 1:59 AM
+    if now.minute == 51 and is_awake_hours:
         key = (now.date(), now.hour)
         if key != _last_fired_key:
             _last_fired_key = key
